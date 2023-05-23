@@ -1,0 +1,63 @@
+1.what is ethereum blockchain
+ans->it is a type of decentralized blockchain platform .A lot of smart contacts run on it .it is developed by vitalik in 2013 who purposed the idea of running program in the blockchain .it is distributed immutable ledger
+
+2.what is erc20 token 
+ans->
+
+totalSupply(): This function returns the total supply of tokens.
+
+balanceOf(address _owner): It retrieves the token balance of a specified address.
+
+transfer(address _to, uint256 _value): This function allows the sender to transfer a certain amount of tokens to another address.
+
+transferFrom(address _from, address _to, uint256 _value): It enables the transfer of tokens from one address to another, but it requires prior approval through the approve() function.
+
+approve(address _spender, uint256 _value): This function allows an address (the spender) to spend a certain amount of tokens on behalf of the owner.
+
+allowance(address _owner, address _spender): It returns the remaining amount of tokens that the spender is allowed to spend on behalf of the owner.
+
+
+3.what is nonce 
+ans-> it is a way to generate the hash because all the value are fixed .basically a number that changes in order to reach that target value 
+
+4.what is gas fee,gas price ,gas estimate 
+ans-> Gas fee refers to the cost incurred by a user for executing a transaction or invoking a smart contract on the Ethereum network. Every operation on the Ethereum blockchain consumes a certain amount of computational resources, and these resources are measured in units called gas. Gas fees are paid in Ether (ETH), the native cryptocurrency of the Ethereum network.Gas price is optional and can be set by the user to mine it fast .
+
+5.what is ether ,wei and gwei 
+ans-> it is a cryptocurrency of etherium and wei is the smallest unit of ether 
+      1 ether=10pow18 wei
+      1 gwei=10pow9 wei
+
+6.what is smart contract 
+anms->In simple terms, a smart contract on the Ethereum blockchain is a piece of code that defines a set of rules and conditions for a specific agreement or application. It runs on the Ethereum Virtual Machine (EVM), which is a decentralized and globally distributed computer network that executes the code of smart contracts.
+
+7->what is raw
+ans->In  Ethereum, "raw" is a term used to refer to data or information that is in its original, unprocessed form. It typically denotes data that has not been encoded, interpreted, or formatted.
+      
+8->how to fetch eth and erc20  token balance.
+ans->const Web3 = require('web3');
+const web3 = new Web3('<ethereum_node_url>');
+
+// Fetch ETH balance
+web3.eth.getBalance('<ethereum_address>')
+  .then(balance => {
+    console.log('ETH Balance:', web3.utils.fromWei(balance, 'ether'));
+  })
+  .catch(err => console.error(err));
+
+// Fetch ERC20 token balance
+const tokenContractAddress = '<erc20_token_contract_address>';
+const tokenContractABI = require('<erc20_token_contract_abi_file>');
+
+const tokenContract = new web3.eth.Contract(tokenContractABI, tokenContractAddress);
+
+tokenContract.methods.balanceOf('<ethereum_address>').call()
+  .then(balance => {
+    console.log('ERC20 Token Balance:', balance);
+  })
+  .catch(err => console.error(err));
+
+9->what is address and private key 
+ans->An address in Ethereum is a unique identifier that represents a destination or source of funds and private key is associated with it 
+
+10->how to send eth and erc20 token 
